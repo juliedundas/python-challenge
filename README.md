@@ -65,10 +65,8 @@ The total number of votes each candidate won
 
 The winner of the election based on popular vote.
 
-
-
-
 As an example, your analysis should look similar to the one below:
+
 Election Results
 -------------------------
 Total Votes: 3521001
@@ -80,6 +78,8 @@ O'Tooley: 3.000% (105630)
 -------------------------
 Winner: Khan
 -------------------------
+
+
 
 
 In addition, your final script should both print the analysis to the terminal and export a text file with the results.
