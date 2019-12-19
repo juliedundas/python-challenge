@@ -5,8 +5,8 @@ import csv
 election_csv = os.path.join('..', 'Resources', 'election_data.csv')
 
 votes = {}
-total_rows = 0
-total_vote_count = 0
+total_votes = 0
+winner = ""
 
 with open(election_csv, 'r') as csvfile:
 
@@ -17,18 +17,38 @@ with open(election_csv, 'r') as csvfile:
 
     # Loop through the data
     for row in csvreader:
-        total_rows = total_rows + 1
-        total_vote_count = total_vote_count + int(row[0])
+        candidate = row[2]
 
-        vote = row[0]
+        total_votes = total_votes + 1
 
-        if vote in votes:
-            votes[vote] = votes[animal] + 1
+        if candidate in votes:
+            votes[candidate] = votes[candidate] + 1
         else:
-            votes[vote] = 1
+            votes[candidate] = 1
 
-for vote, num in votes.items():
-    #print(vote + ": " + str(num))
+        if votes[candidate] > votes[candidate]:
+            votes[candidate] = winner
 
-    print(total_rows)
-    #print(total_vote_count)
+#print(f"Total Votes: {total_votes}")
+print("Election Results")
+print("-----------------------")
+print(f"Total Votes: ${total_votes}")
+print("-----------------------")
+#for vote, num in votes.items():
+#print(candidate + ": " + str(num))
+for candidate, votes in votes.items():
+    # print(candidate + ":   " + str(round((votes / total_votes) * 100, 2)) +"%   " + str(votes))
+    #file.write(candidate + ":   " +
+    #str(round((votes / total_votes) * 100, 2)) + "%   " +str(votes) + "\n")
+    #winner = sum(total_votes)
+
+    print(
+        str(candidate) + ": " + str(round((votes / total_votes) * 100, 3)) +
+        "% " + str(votes))
+
+print(winner)
+
+print("-----------------------")
+
+print(f"Winner: {winner}")
+print("-----------------------")
